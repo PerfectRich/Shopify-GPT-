@@ -8,6 +8,64 @@
 {%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    background: linear-gradient(180deg, #2a190e 0%, #120a06 100%);
+    border-top: 3px solid #4d321d;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.52);
+    color: #ead5b2;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .footer .footer__content-top {
+    padding-left: clamp(26px, 5vw, 66px);
+    padding-right: clamp(26px, 5vw, 66px);
+  }
+
+  .footer .footer__blocks-wrapper {
+    column-gap: 32px;
+    row-gap: 26px;
+  }
+
+  .footer .footer-block__heading {
+    margin-bottom: 12px;
+    color: #f1dfbd;
+    font-family: Copperplate, 'Copperplate Gothic Bold', Rockwell, Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+
+  .footer .footer-block:first-child .footer-block__heading {
+    color: #fff0d0;
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+
+  .footer .footer-block__details-content,
+  .footer .footer-block__details-content p,
+  .footer .footer-block__details-content a,
+  .footer .copyright__content,
+  .footer .copyright__content a,
+  .footer .policies a {
+    color: #ead5b2;
+  }
+
+  .footer .footer-block__details-content p {
+    margin: 0 0 7px;
+    line-height: 1.4;
+  }
+
+  .footer .footer-block__details-content a {
+    text-decoration: none;
+  }
+
+  .footer .footer-block__details-content a:hover {
+    color: #fff0d0;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  .footer .footer__content-bottom {
+    border-top-color: rgba(143, 104, 65, 0.55);
   }
 
   .section-{{ section.id }}-padding {
@@ -23,6 +81,11 @@
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .footer .footer-block:not(:first-child) {
+      padding-left: 24px;
+      border-left: 1px solid #6d4b2d;
     }
   }
 {%- endstyle -%}
@@ -300,9 +363,8 @@
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
         <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+          >&copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: routes.root_url }}. All Rights Reserved.
         </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">
             {%- for policy in shop.policies -%}
