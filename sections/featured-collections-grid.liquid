@@ -1,0 +1,853 @@
+{% style %}
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+@font-face {
+  font-family: "Mirage Slab";
+  src: url("https://cdn.shopify.com/s/files/1/0699/9664/2417/files/mirage-slab-regular.ttf?v=1786833624") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.vintage-title--mirage {
+  font-family: "Mirage Slab", Rockwell, Georgia, serif;
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+.custom-collections-section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  color: #3d160f;
+  background-color: var(--cc-background);
+  background-image: radial-gradient(circle at 20% 30%, rgba(104, 30, 23, .05), transparent 30%), radial-gradient(circle at 80% 70%, rgba(61, 22, 15, .05), transparent 35%);
+}
+
+.collections-wrapper {
+  width: min(var(--cc-max-width), calc(100% - (var(--cc-side-padding) * 2)));
+  margin: 0 auto;
+  padding-top: var(--cc-section-top);
+  padding-bottom: var(--cc-section-bottom);
+}
+
+.vintage-heading-wrap { display: flex; align-items: center; gap: 18px; margin: 0 0 var(--cc-heading-space); }
+.vintage-heading-wrap--left { justify-content: flex-start; text-align: left; }
+.vintage-heading-wrap--center { justify-content: center; text-align: center; }
+.vintage-heading-wrap--right { justify-content: flex-end; text-align: right; }
+
+.vintage-title {
+  margin: 0;
+  color: var(--cc-heading-color);
+  font-size: var(--cc-heading-size);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 rgba(255,255,255,.45), 0 3px 3px rgba(61,22,15,.2);
+}
+
+.vintage-title--rockwell { font-family: Rockwell, "Roboto Slab", Georgia, serif; }
+.vintage-title--rye { font-family: Rye, Rockwell, Georgia, serif; }
+.vintage-title--calico { font-family: "Calico Bones", Rockwell, Georgia, serif; }
+.vintage-title--copperplate { font-family: Copperplate, "Copperplate Gothic Bold", Rockwell, Georgia, serif; }
+.vintage-title--georgia { font-family: Georgia, "Times New Roman", serif; }
+.vintage-title--theme { font-family: var(--font-heading-family); }
+
+.heading-flourish { flex: 0 0 auto; color: var(--cc-flourish-color); font-family: Georgia, serif; font-size: calc(var(--cc-heading-size) * .75); line-height: 1; }
+.heading-flourish--right { transform: scaleX(-1); }
+
+.collections-grid { display: grid; grid-template-columns: repeat(var(--cc-desktop-columns), minmax(0, 1fr)); gap: var(--cc-grid-gap); align-items: stretch; }
+.collection-card-item { min-width: 0; }
+
+.collection-card-item--inset {
+  position: relative;
+  padding: var(--cc-inset-depth);
+  border: 1px solid rgba(61,22,15,.32);
+  border-radius: 5px;
+  background: rgba(61,22,15,.1);
+  box-shadow: inset 0 0 calc(var(--cc-inset-depth) * 1.8) rgba(22,13,8,var(--cc-inset-darkness)), inset 0 2px 2px rgba(255,244,218,var(--cc-inset-highlight)), 0 1px 0 rgba(255,255,255,.28), 0 8px 18px rgba(22,13,8,var(--cc-outer-shadow));
+}
+
+.collection-card-item--inset::before {
+  position: absolute;
+  inset: calc(var(--cc-inset-depth) * .45);
+  z-index: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(22,13,8,.42), 0 2px 5px rgba(22,13,8,.35);
+  content: "";
+  pointer-events: none;
+}
+
+.sign-link { position: relative; z-index: 1; display: block; height: 100%; color: inherit; text-decoration: none; }
+.hanging-sign { position: relative; height: 100%; padding-top: calc(var(--cc-chain-length) + 3px); transition: transform 180ms ease, filter 180ms ease; }
+.hanging-sign:not(:has(.sign-chain)) { padding-top: 0; }
+.sign-link:hover .hanging-sign { transform: translateY(-4px); filter: brightness(1.05); }
+
+.sign-chain {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  width: var(--cc-chain-width);
+  height: var(--cc-chain-length);
+  background: radial-gradient(ellipse at center, transparent 28%, var(--cc-chain-highlight) 31%, var(--cc-chain-highlight) 40%, var(--cc-chain-color) 43%, var(--cc-chain-color) 63%, transparent 66%) center top / 100% 10px repeat-y;
+  filter: drop-shadow(1px 1px 1px rgba(22,13,8,.65));
+}
+
+.sign-chain::before,
+.sign-chain::after {
+  position: absolute;
+  left: 50%;
+  width: calc(var(--cc-chain-width) + 3px);
+  height: calc(var(--cc-chain-width) + 3px);
+  border: 2px solid var(--cc-chain-color);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--cc-chain-highlight), var(--cc-chain-color) 55%, #402711 100%);
+  box-shadow: inset 0 0 0 2px rgba(255,221,139,.22), 0 1px 2px rgba(0,0,0,.65);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.sign-chain::before { top: -2px; }
+.sign-chain::after { bottom: -2px; }
+.sign-chain--left { left: var(--cc-chain-spacing); }
+.sign-chain--right { right: var(--cc-chain-spacing); }
+
+.sign-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--cc-image-ratio);
+  border: var(--cc-card-border-width) solid var(--cc-card-border-color);
+  border-bottom: 0;
+  background: #160d08;
+  box-shadow: 0 5px 10px rgba(22,13,8,.42), inset 0 0 0 1px rgba(223,166,79,.35);
+}
+
+.sign-image-wrapper img,
+.sign-image-wrapper svg { display: block; width: 100%; height: 100%; object-fit: var(--cc-image-fit); object-position: center var(--cc-image-position); transition: transform 250ms ease; }
+.sign-link:hover .sign-image-wrapper img { transform: scale(1.02); }
+.placeholder-sign { width: 100%; height: 100%; color: #a98251; background: #d6b986; }
+
+.sign-footer-tag {
+  position: relative;
+  display: flex;
+  min-height: var(--cc-label-height);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 10px;
+  border: var(--cc-card-border-width) solid var(--cc-card-border-color);
+  background-color: var(--cc-label-background);
+  box-shadow: 0 6px 10px rgba(22,13,8,.4), inset 0 1px 0 rgba(223,166,79,.28);
+  text-align: center;
+}
+
+.sign-footer-tag--wood {
+  background-image: linear-gradient(rgba(22,13,8,var(--cc-label-overlay)), rgba(22,13,8,var(--cc-label-overlay))), var(--cc-label-wood-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sign-footer-tag--wood::after {
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(255,225,166,.22);
+  box-shadow: inset 0 2px 4px rgba(255,222,157,.12), inset 0 -5px 8px rgba(0,0,0,.35);
+  content: "";
+  pointer-events: none;
+}
+
+.sign-name {
+  position: relative;
+  z-index: 1;
+  color: var(--cc-label-color);
+  font-family: Rockwell, "Roboto Slab", Georgia, serif;
+  font-size: var(--cc-label-size);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px #000, 0 2px 3px rgba(0,0,0,.7);
+  transform: translateY(2px);
+}
+
+.collections-divider {
+  position: relative;
+  z-index: 600;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  border: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.collections-divider-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: var(--cc-divider-width);
+  max-width: none;
+  height: var(--cc-divider-display-height);
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.collections-divider--top .collections-divider-image {
+  transform: translate(-50%, calc(-50% + var(--cc-top-divider-offset)));
+}
+
+.collections-divider--bottom .collections-divider-image {
+  transform: translate(-50%, calc(-50% + var(--cc-bottom-divider-offset)));
+}
+
+.iron-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: calc(var(--cc-divider-height) + 14px);
+  height: calc(var(--cc-divider-height) + 14px);
+  place-items: center;
+  border: 4px solid #120a06;
+  border-radius: 50%;
+  color: var(--cc-star-color);
+  background: radial-gradient(circle, var(--cc-divider-light) 0 36%, var(--cc-divider-dark) 38% 65%, #080504 67%);
+  box-shadow: 0 3px 8px rgba(0,0,0,.7), inset 0 0 0 2px #6d4527;
+  font-size: calc(var(--cc-divider-height) * .66);
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1199px) {
+  .collections-grid { grid-template-columns: repeat(var(--cc-tablet-columns), minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 749px) {
+  .vintage-heading-wrap { gap: 9px; }
+  .vintage-title { font-size: min(var(--cc-heading-size), 11vw); }
+  .heading-flourish { font-size: min(calc(var(--cc-heading-size) * .7), 8vw); }
+  .collections-grid { grid-template-columns: repeat(var(--cc-mobile-columns), minmax(0, 1fr)); }
+  .sign-name { font-size: min(var(--cc-label-size), 4vw); }
+  .collections-divider-image {
+    height: min(var(--cc-divider-display-height), 60px);
+  }
+}
+{% endstyle %}
+
+{% liquid
+  if section.settings.label_wood_image != blank
+    assign label_wood_url = section.settings.label_wood_image | image_url: width: 1200
+  else
+    assign label_wood_url = 'https://cdn.shopify.com/s/files/1/0699/9664/2417/files/headerWoodBackground.jpg?v=1786957670'
+  endif
+%}
+
+<section
+  id="CustomCollections-{{ section.id }}"
+  class="custom-collections-section"
+  style="
+    --cc-background: {{ section.settings.bg_color }};
+    --cc-heading-color: {{ section.settings.heading_color }};
+    --cc-heading-size: {{ section.settings.heading_size }}px;
+    --cc-heading-space: {{ section.settings.heading_bottom_space }}px;
+    --cc-flourish-color: #681e17;
+    --cc-section-top: {{ section.settings.section_padding_top }}px;
+    --cc-section-bottom: {{ section.settings.section_padding_bottom }}px;
+    --cc-max-width: {{ section.settings.max_width }}px;
+    --cc-side-padding: {{ section.settings.side_padding }}px;
+    --cc-grid-gap: {{ section.settings.grid_gap }}px;
+    --cc-desktop-columns: {{ section.settings.desktop_columns }};
+    --cc-tablet-columns: {{ section.settings.tablet_columns }};
+    --cc-mobile-columns: {{ section.settings.mobile_columns }};
+    --cc-image-ratio: {{ section.settings.image_ratio }};
+    --cc-image-fit: {{ section.settings.image_fit }};
+    --cc-card-border-width: {{ section.settings.card_border_width }}px;
+    --cc-card-border-color: {{ section.settings.card_border_color }};
+    --cc-label-background: #3d160f;
+    --cc-label-color: {{ section.settings.label_text_color }};
+    --cc-label-size: {{ section.settings.label_text_size }}px;
+    --cc-label-height: {{ section.settings.label_height }}px;
+    --cc-label-overlay: {{ section.settings.label_wood_overlay | divided_by: 100.0 }};
+    --cc-label-wood-image: url('{{ label_wood_url }}');
+    --cc-inset-depth: {{ section.settings.inset_depth }}px;
+    --cc-inset-darkness: {{ section.settings.inset_darkness | divided_by: 100.0 }};
+    --cc-inset-highlight: 0.35;
+    --cc-outer-shadow: {{ section.settings.outer_shadow_strength | divided_by: 100.0 }};
+    --cc-chain-length: {{ section.settings.chain_length }}px;
+    --cc-chain-width: 7px;
+    --cc-chain-color: {{ section.settings.chain_color }};
+    --cc-chain-highlight: #d3a44f;
+    --cc-chain-spacing: 22%;
+    --cc-divider-width: {{ section.settings.divider_width }}%;
+    --cc-divider-display-height: {{ section.settings.divider_display_height }}px;
+    --cc-top-divider-offset: {{ section.settings.top_divider_offset }}px;
+    --cc-bottom-divider-offset: {{ section.settings.bottom_divider_offset }}px;
+    --cc-star-color: #d69735;
+  "
+>
+  {% if section.settings.show_top_divider %}
+    <div class="collections-divider collections-divider--top">
+      <img
+        class="collections-divider-image"
+        src="https://cdn.shopify.com/s/files/1/0699/9664/2417/files/wood-seperator2.png?v=1786819996"
+        width="2000"
+        height="70"
+        alt=""
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+
+  <div class="collections-wrapper">
+    {% if section.settings.title != blank %}
+      <div class="vintage-heading-wrap vintage-heading-wrap--{{ section.settings.heading_alignment }}">
+        {% if section.settings.show_flourishes %}
+          <span class="heading-flourish" aria-hidden="true">❧</span>
+        {% endif %}
+
+        <h2 class="vintage-title vintage-title--{{ section.settings.heading_font }}">
+          {{ section.settings.title | escape }}
+        </h2>
+
+        {% if section.settings.show_flourishes %}
+          <span
+            class="heading-flourish heading-flourish--right"
+            aria-hidden="true"
+          >
+            ❧
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="collections-grid">
+      {% for block in section.blocks %}
+        {% liquid
+          assign selected_collection = block.settings.collection
+          assign card_title = block.settings.custom_title
+          assign card_url = block.settings.custom_link
+          assign card_alt = block.settings.image_alt
+
+          if card_title == blank and selected_collection != blank
+            assign card_title = selected_collection.title
+          endif
+
+          if card_title == blank
+            assign card_title = 'Collection'
+          endif
+
+          if card_url == blank and selected_collection != blank
+            assign card_url = selected_collection.url
+          endif
+
+          if card_url == blank
+            assign card_url = '#'
+          endif
+
+          if card_alt == blank
+            assign card_alt = card_title
+          endif
+        %}
+
+        <article
+          class="collection-card-item{% if section.settings.enable_inset %} collection-card-item--inset{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          <a
+            class="sign-link"
+            href="{{ card_url }}"
+            aria-label="{{ card_title | escape }}"
+          >
+            <div class="hanging-sign">
+              {% if section.settings.show_chains %}
+                <span
+                  class="sign-chain sign-chain--left"
+                  aria-hidden="true"
+                ></span>
+
+                <span
+                  class="sign-chain sign-chain--right"
+                  aria-hidden="true"
+                ></span>
+              {% endif %}
+
+              <div
+                class="sign-image-wrapper"
+                style="--cc-image-position: {{ block.settings.image_position }}%;"
+              >
+                {% if block.settings.custom_image != blank %}
+                  {{
+                    block.settings.custom_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '320, 480, 640, 900, 1200',
+                      sizes: '(min-width: 1200px) 25vw, (min-width: 750px) 50vw, 100vw',
+                      alt: card_alt
+                  }}
+                {% elsif selected_collection.featured_image != blank %}
+                  {{
+                    selected_collection.featured_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '320, 480, 640, 900, 1200',
+                      sizes: '(min-width: 1200px) 25vw, (min-width: 750px) 50vw, 100vw',
+                      alt: card_alt
+                  }}
+                {% else %}
+                  <div class="placeholder-sign">
+                    {{ 'collection-1' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if section.settings.show_labels %}
+                <div
+                  class="sign-footer-tag{% if section.settings.use_label_wood %} sign-footer-tag--wood{% endif %}"
+                >
+                  <span class="sign-name">
+                    {{ card_title | escape }}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.settings.show_bottom_divider %}
+    <div class="collections-divider collections-divider--bottom">
+      <img
+        class="collections-divider-image"
+        src="https://cdn.shopify.com/s/files/1/0699/9664/2417/files/wood-seperator2.png?v=1786819996"
+        width="2000"
+        height="70"
+        alt=""
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Rustic Collections Grid",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section heading",
+      "default": "SHOP OUR COLLECTIONS"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "mirage",
+      "options": [
+        { "value": "rockwell", "label": "Rockwell Western" },
+        { "value": "mirage", "label": "Mirage Slab" },
+        { "value": "rye", "label": "Rye" },
+        { "value": "calico", "label": "Calico Bones" },
+        { "value": "copperplate", "label": "Copperplate" },
+        { "value": "georgia", "label": "Georgia" },
+        { "value": "theme", "label": "Theme heading font" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#3d160f"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_flourishes",
+      "label": "Show heading flourishes",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_bottom_space",
+      "label": "Space below heading",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F7F1E1"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1240
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "label": "Side padding",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Cards per row on desktop",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "tablet_columns",
+      "label": "Cards per row on tablet",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Cards per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Space between cards",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Card image shape",
+      "default": "3 / 2",
+      "options": [
+        { "value": "3 / 2", "label": "Wide 3:2" },
+        { "value": "16 / 9", "label": "Extra wide 16:9" },
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 5", "label": "Tall 4:5" },
+        { "value": "3 / 4", "label": "Extra tall 3:4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fitting",
+      "default": "cover",
+      "options": [
+        { "value": "cover", "label": "Fill and crop" },
+        { "value": "contain", "label": "Show complete image" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_inset",
+      "label": "Inset cards into background",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "inset_depth",
+      "label": "Inset depth",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "inset_darkness",
+      "label": "Inside shadow strength",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "checkbox",
+      "id": "show_chains",
+      "label": "Show hanging chains",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "chain_length",
+      "label": "Chain length",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "chain_color",
+      "label": "Antique brass",
+      "default": "#8a5a24"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Border thickness",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border color",
+      "default": "#32180e"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_labels",
+      "label": "Show collection labels",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_label_wood",
+      "label": "Use wood behind labels",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "label_wood_image",
+      "label": "Label wood image"
+    },
+    {
+      "type": "range",
+      "id": "label_wood_overlay",
+      "label": "Wood darkness",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Label text",
+      "default": "#fff2dc"
+    },
+    {
+      "type": "range",
+      "id": "label_text_size",
+      "label": "Label text size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "label_height",
+      "label": "Minimum label height",
+      "min": 30,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_divider",
+      "label": "Show top divider",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_divider",
+      "label": "Show bottom divider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "Divider width",
+      "min": 60,
+      "max": 120,
+      "step": 1,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "divider_display_height",
+      "label": "Divider height",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "top_divider_offset",
+      "label": "Top divider vertical position",
+      "min": -100,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "bottom_divider_offset",
+      "label": "Bottom divider vertical position",
+      "min": -100,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "outer_shadow_strength",
+      "label": "Outside shadow strength",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection sign",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Choose collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom preview image"
+        },
+        {
+          "type": "range",
+          "id": "image_position",
+          "label": "Image vertical position",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom label"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image description"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rustic Collections Grid",
+      "blocks": [
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "collection_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,424 @@
+{% if section.settings.show_section %}
+<section id="CalicoHow-{{ section.id }}" class="calico-how">
+  <div class="calico-how__inner">
+    <header class="calico-how__heading"><span class="calico-how__flourish" aria-hidden="true">❧</span><div class="calico-how__heading-html">{{ section.settings.heading_html }}</div><span class="calico-how__flourish calico-how__flourish--right" aria-hidden="true">❧</span></header>
+    <div class="calico-how__steps">
+      {% for block in section.blocks %}
+        <article class="calico-how__step" {{ block.shopify_attributes }}>
+          <div class="calico-how__disc">
+            {% if block.settings.icon != blank %}
+              {{ block.settings.icon | image_url: width: 240 | image_tag: class: 'calico-how__icon-image', loading: 'lazy', alt: '' }}
+            {% else %}
+              <span class="calico-how__fallback" aria-hidden="true">
+                {% case block.settings.fallback_icon %}
+                  {% when 'pencil' %}<svg viewBox="0 0 64 64"><path d="m12 48 35-35 8 8-35 35-12 2 4-10Z"/><path d="m42 18 8 8M13 47l7 7"/></svg>
+                  {% when 'chat' %}<svg viewBox="0 0 64 64"><path d="M10 15h44v31H31L19 55v-9h-9V15Z"/><circle cx="22" cy="31" r="2"/><circle cx="32" cy="31" r="2"/><circle cx="42" cy="31" r="2"/></svg>
+                  {% when 'hand' %}<svg viewBox="0 0 64 64"><path d="M21 31V16a4 4 0 0 1 8 0v13-17a4 4 0 0 1 8 0v17-14a4 4 0 0 1 8 0v17-9a4 4 0 0 1 8 0v17c0 11-8 19-19 19h-3c-7 0-12-3-16-9L8 31a4 4 0 0 1 6-5l7 5Z"/></svg>
+                  {% when 'truck' %}<svg viewBox="0 0 64 64"><path d="M7 18h31v27H7V18Zm31 10h10l9 10v7H38V28Z"/><circle cx="19" cy="48" r="5"/><circle cx="49" cy="48" r="5"/><path d="M42 33h8l5 6H42v-6Z"/></svg>
+                  {% else %}<svg viewBox="0 0 64 64"><path d="M8 13h7l5 28h30l6-20H18"/><circle cx="26" cy="51" r="5"/><circle cx="46" cy="51" r="5"/><path d="M26 27h21M30 20l-8 8 8 8"/></svg>
+                {% endcase %}
+              </span>
+            {% endif %}
+          </div>
+          <div class="calico-how__html">{{ block.settings.html }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% stylesheet %}
+.calico-how{position:relative;width:100%;color:#3d160f;background:radial-gradient(circle at 18% 20%,rgba(148,94,42,.13),transparent 26%),radial-gradient(circle at 78% 76%,rgba(159,104,46,.11),transparent 30%),repeating-linear-gradient(0deg,rgba(104,66,31,.028) 0 1px,transparent 1px 4px),linear-gradient(90deg,#e7c78f,#f3d8a4 18%,#efd19a 50%,#f5dcaa 82%,#e7c68d);box-shadow:inset 0 10px 24px #6b431d22,inset 0 -10px 24px #6b431d22}.calico-how:before,.calico-how:after{content:"";position:absolute;inset-inline:0;height:1px;background:#6e3b1c66}.calico-how:before{top:0}.calico-how:after{bottom:0}.calico-how__inner{width:min(1240px,calc(100% - 48px));margin:0 auto;padding:34px 0 42px}.calico-how__heading{display:flex;align-items:center;justify-content:center;gap:17px;margin-bottom:25px;text-align:center}.calico-how__heading-html h1,.calico-how__heading-html h2,.calico-how__heading-html h3,.calico-how__heading-html p{margin:0}.calico-how__heading-html h2,.calico-how__heading-html h1{color:#3b160f;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:clamp(26px,3vw,39px);font-weight:900;line-height:1;letter-spacing:.025em;text-transform:uppercase;text-shadow:0 1px #f8e4b9}.calico-how__flourish{display:inline-block;color:#421910;font-family:Georgia,serif;font-size:28px;line-height:1;transform:rotate(12deg)}.calico-how__flourish--right{transform:scaleX(-1) rotate(12deg)}.calico-how__steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start}.calico-how__step{position:relative;min-width:0;padding:0 21px;text-align:center}.calico-how__step:not(:last-child):after{content:"→";position:absolute;top:28px;right:-10px;z-index:2;color:#32120d;font-family:Georgia,serif;font-size:33px;line-height:1;text-shadow:0 1px #fff5}.calico-how__disc{width:72px;height:72px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 36% 28%,#6c2116 0 12%,#4a130e 58%,#2e0d09 100%);border:1px solid #7e3626;color:#f7e6bd;box-shadow:0 3px 5px #6c3a1d44,inset 0 1px 2px #c2785538}.calico-how__fallback{width:44px;height:44px;display:grid;place-items:center}.calico-how__fallback svg,.calico-how__icon-image{width:44px;height:44px;display:block;object-fit:contain}.calico-how__fallback svg{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.calico-how__html h1,.calico-how__html h2,.calico-how__html h3,.calico-how__html h4,.calico-how__html p{margin:0}.calico-how__html h3,.calico-how__html h2{margin-bottom:7px;color:#36130e;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:clamp(13px,1.2vw,16px);font-weight:900;line-height:1.13;letter-spacing:.01em;text-transform:uppercase}.calico-how__html p{max-width:190px;margin-inline:auto;color:#4c291a;font-family:Georgia,"Times New Roman",serif;font-size:12px;line-height:1.32}@media(max-width:900px){.calico-how__steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}.calico-how__step:not(:last-child):after{display:none}.calico-how__step:last-child{grid-column:1/-1;width:50%;justify-self:center}}@media(max-width:520px){.calico-how__inner{width:calc(100% - 24px);padding-block:28px 34px}.calico-how__steps{grid-template-columns:1fr;gap:26px}.calico-how__step:last-child{grid-column:auto;width:auto}.calico-how__heading{gap:9px}.calico-how__flourish{font-size:21px}}
+{% endstylesheet %}
+
+{% style %}
+#CalicoHow-{{ section.id }} {
+  background-color: {{ section.settings.background_color }};
+  {% if section.settings.background_image != blank %}
+    background-image: linear-gradient(rgba(255,255,255,{{ section.settings.overlay | divided_by: 100.0 }}),rgba(255,255,255,{{ section.settings.overlay | divided_by: 100.0 }})),url('{{ section.settings.background_image | image_url: width: 2400 }}');
+    background-position: {{ section.settings.background_position }};
+    background-size: cover;
+  {% endif %}
+}
+#CalicoHow-{{ section.id }} .calico-how__inner { width:min({{ section.settings.max_width }}px,calc(100% - 48px)); padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; }
+#CalicoHow-{{ section.id }} .calico-how__heading { margin-bottom:{{ section.settings.heading_spacing }}px; }
+#CalicoHow-{{ section.id }} .calico-how__heading-html h1,
+#CalicoHow-{{ section.id }} .calico-how__heading-html h2 { color:{{ section.settings.heading_color }}; font-size:{{ section.settings.heading_size }}px; }
+#CalicoHow-{{ section.id }} .calico-how__flourish { color:{{ section.settings.flourish_color }}; font-size:{{ section.settings.flourish_size }}px; }
+{% unless section.settings.show_flourishes %}#CalicoHow-{{ section.id }} .calico-how__flourish{display:none!important}{% endunless %}
+#CalicoHow-{{ section.id }} .calico-how__steps { grid-template-columns:repeat({{ section.settings.columns }},minmax(0,1fr)); gap:{{ section.settings.gap }}px; }
+#CalicoHow-{{ section.id }} .calico-how__step { padding:0 {{ section.settings.item_padding }}px; text-align:{{ section.settings.alignment }}; }
+#CalicoHow-{{ section.id }} .calico-how__disc { width:{{ section.settings.disc_size }}px; height:{{ section.settings.disc_size }}px; background:{{ section.settings.disc_background }}; color:{{ section.settings.icon_color }}; }
+#CalicoHow-{{ section.id }} .calico-how__fallback,
+#CalicoHow-{{ section.id }} .calico-how__fallback svg,
+#CalicoHow-{{ section.id }} .calico-how__icon-image { width:{{ section.settings.icon_size }}px; height:{{ section.settings.icon_size }}px; }
+#CalicoHow-{{ section.id }} .calico-how__html h2,
+#CalicoHow-{{ section.id }} .calico-how__html h3 { color:{{ section.settings.step_heading_color }}; font-size:{{ section.settings.step_heading_size }}px; }
+#CalicoHow-{{ section.id }} .calico-how__html p { color:{{ section.settings.text_color }}; font-size:{{ section.settings.text_size }}px; }
+#CalicoHow-{{ section.id }} .calico-how__step:not(:last-child):after { color:{{ section.settings.arrow_color }}; font-size:{{ section.settings.arrow_size }}px; }
+{% unless section.settings.show_arrows %}#CalicoHow-{{ section.id }} .calico-how__step:not(:last-child):after{display:none!important}{% endunless %}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Calico How It Works",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "heading_html",
+      "label": "Heading HTML",
+      "default": "<h2>HOW IT WORKS</h2>"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#efd19a"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "Background position",
+      "default": "center center",
+      "options": [
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Image light overlay",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content width",
+      "min": 800,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1240
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Step gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Space below heading",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 39
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#3b160f"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_flourishes",
+      "label": "Show heading flourishes",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "flourish_size",
+      "label": "Flourish size",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "flourish_color",
+      "label": "Flourish color",
+      "default": "#421910"
+    },
+    {
+      "type": "range",
+      "id": "disc_size",
+      "label": "Icon circle size",
+      "min": 44,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "color",
+      "id": "disc_background",
+      "label": "Icon circle color",
+      "default": "#4a130e"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#f7e6bd"
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Step side padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 21
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "step_heading_size",
+      "label": "Step heading size",
+      "min": 11,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "step_heading_color",
+      "label": "Step heading color",
+      "default": "#36130e"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Body text size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#4c291a"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "label": "Arrow size",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 33
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#32120d"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image"
+        },
+        {
+          "type": "select",
+          "id": "fallback_icon",
+          "label": "Built-in icon",
+          "default": "cart",
+          "options": [
+            {
+              "value": "cart",
+              "label": "Cart"
+            },
+            {
+              "value": "pencil",
+              "label": "Pencil"
+            },
+            {
+              "value": "chat",
+              "label": "Conversation"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            },
+            {
+              "value": "truck",
+              "label": "Delivery truck"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "html",
+          "label": "Heading and text HTML",
+          "default": "<h3>Step heading</h3><p>Add step details here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Calico How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "fallback_icon": "cart",
+            "html": "<h3>1. SELECT DESIGN</h3><p>Choose a design and size you love.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "fallback_icon": "pencil",
+            "html": "<h3>2. ENTER TEXT</h3><p>Add your text exactly as you want it carved.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "fallback_icon": "chat",
+            "html": "<h3>3. CUSTOMIZE</h3><p>Add any notes or special requests for your sign.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "fallback_icon": "hand",
+            "html": "<h3>4. HAND CARVING</h3><p>Our craftsmen carve and paint your sign by hand.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "fallback_icon": "truck",
+            "html": "<h3>5. FINISH & DELIVERY</h3><p>Carefully finished and shipped right to your door.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,441 @@
+{% if section.settings.show_section %}
+<section id="CalicoReviews-{{ section.id }}" class="cws-reviews" aria-label="Customer reviews">
+  <div class="cws-reviews__inner">
+    <header class="cws-reviews__header">
+      {% if section.settings.kicker != blank %}<div class="cws-reviews__kicker">{{ section.settings.kicker | escape }}</div>{% endif %}
+      <div class="cws-reviews__title-row">
+        <span class="cws-reviews__rule" aria-hidden="true"></span>
+        <div class="cws-reviews__heading">{{ section.settings.heading_html | default: '<h2>WHAT OUR CUSTOMERS SAY</h2>' }}</div>
+        <span class="cws-reviews__rule" aria-hidden="true"></span>
+      </div>
+      {% if section.settings.subhead != blank %}<p class="cws-reviews__subhead">{{ section.settings.subhead | escape }}</p>{% endif %}
+    </header>
+
+    <div class="cws-reviews__grid">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <article class="cws-review" {{ block.shopify_attributes }}>
+            <div class="cws-review__top">
+              <span class="cws-review__quote" aria-hidden="true">“</span>
+              <div class="cws-review__stars" aria-label="{{ block.settings.rating }} out of 5 stars">{% for i in (1..block.settings.rating) %}★{% endfor %}</div>
+            </div>
+            <div class="cws-review__excerpt">{{ block.settings.excerpt_html }}</div>
+            {% if block.settings.full_review_html != blank %}
+              <details class="cws-review__details">
+                <summary>Read full review</summary>
+                <div class="cws-review__full">{{ block.settings.full_review_html }}</div>
+              </details>
+            {% endif %}
+            <footer class="cws-review__footer">
+              <div>
+                {% if block.settings.source_url != blank %}
+                  <a class="cws-review__name" href="{{ block.settings.source_url }}" target="_blank" rel="noopener">{{ block.settings.reviewer }}</a>
+                {% else %}
+                  <span class="cws-review__name">{{ block.settings.reviewer }}</span>
+                {% endif %}
+                {% if block.settings.meta != blank %}<div class="cws-review__meta">{{ block.settings.meta }}</div>{% endif %}
+              </div>
+              <span class="cws-review__google">GOOGLE ↗</span>
+            </footer>
+          </article>
+        {% endfor %}
+      {% else %}
+        <article class="cws-review">
+          <div class="cws-review__top"><span class="cws-review__quote" aria-hidden="true">“</span><div class="cws-review__stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+          <div class="cws-review__excerpt"><p>The signs are amazing, but even better is the staff. Very friendly, excited to tell you about their craft.</p></div>
+          <details class="cws-review__details"><summary>Read full review</summary><div class="cws-review__full"><p>The signs are amazing, but even better is the staff. Very friendly, excited to tell you about their craft, and if you forget to pickup your sign before you leave, they will try to hang onto it for as long as they can. If you can't make it back for a couple weeks or even longer, there's a decent chance it'll still be there for you.</p></div></details>
+          <footer class="cws-review__footer"><div><a class="cws-review__name" href="https://www.google.com/maps/contrib/102255331978099089021/reviews?hl=en" target="_blank" rel="noopener">Pikachu</a><div class="cws-review__meta">Local Guide · 84 reviews · 7 photos · 37 weeks ago</div></div><span class="cws-review__google">GOOGLE ↗</span></footer>
+        </article>
+
+        <article class="cws-review">
+          <div class="cws-review__top"><span class="cws-review__quote" aria-hidden="true">“</span><div class="cws-review__stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+          <div class="cws-review__excerpt"><p>Rich is incredible!!! One of the most talented wood workers I’ve ever came across! Definitely need to get a sign from him if you haven’t!</p></div>
+          <footer class="cws-review__footer"><div><a class="cws-review__name" href="https://www.google.com/maps/contrib/103155162325223219411/reviews?hl=en" target="_blank" rel="noopener">Jessica Min</a><div class="cws-review__meta">6 reviews · 3 photos · Feb 26, 2025</div></div><span class="cws-review__google">GOOGLE ↗</span></footer>
+        </article>
+
+        <article class="cws-review cws-review--story">
+          <div class="cws-review__top"><span class="cws-review__quote" aria-hidden="true">“</span><div class="cws-review__stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+          <div class="cws-review__excerpt"><p>I could not be any happier with how it turned out. It was finished and delivered in a pretty quick turnaround considering it was customly made and the quality is impeccable. HIGHLY recommend this quality business.</p></div>
+          <details class="cws-review__details"><summary>Read Joe’s full story</summary><div class="cws-review__full"><p>I had a wood sign commissioned for my mom for Christmas. I left a note that I'd love for there to be a blackberry bush or blackberries included in the sign because my mom lives in Grass Valley where there are tons of blackberry bushes and she has fond childhood memories of picking blackberries. She even has a tattoo of a blackberry cluster so it's something very special to her.</p><p>The carver called me up and asked me for details on how to include blackberries into the sign and it was really nice being able to collaborate on the phone with the actual carver. I gave him my general vision and told him to go with his artistic instinct for what he felt would work best.</p><p>I could not be any happier with how it turned out. It was finished and delivered in a pretty quick turnaround considering it was customly made and the quality is impeccable. HIGHLY recommend this quality business to anyone looking for a legit custom wood sign.</p><p>In a world where the word of the year was 'enshittification', it was a breath of fresh air to hire a company with integrity that produced such a beautiful product made with human love, ingenuity, class and talent!</p><p>Merry Christmas!!!</p></div></details>
+          <footer class="cws-review__footer"><div><a class="cws-review__name" href="https://www.google.com/maps/contrib/114318014966561900373/reviews?hl=en" target="_blank" rel="noopener">Joe Auby</a><div class="cws-review__meta">5 reviews · 1 photo · Dec 21, 2024</div></div><span class="cws-review__google">GOOGLE ↗</span></footer>
+        </article>
+
+        <article class="cws-review">
+          <div class="cws-review__top"><span class="cws-review__quote" aria-hidden="true">“</span><div class="cws-review__stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+          <div class="cws-review__excerpt"><p>Calico Wood Signs provided excellent customer service and went above and beyond to create the sign I have wanted for years. Thank you for your commitment to quality work and exceptional service.</p></div>
+          <footer class="cws-review__footer"><div><a class="cws-review__name" href="https://www.google.com/maps/contrib/103274084168461265557/reviews?hl=en" target="_blank" rel="noopener">Max Stovall</a><div class="cws-review__meta">Local Guide · 57 reviews · Dec 12, 2024</div></div><span class="cws-review__google">GOOGLE ↗</span></footer>
+        </article>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% stylesheet %}
+.cws-reviews{position:relative;width:100%;overflow:hidden;color:#3b1a10;background:radial-gradient(ellipse at 50% -10%,rgba(255,248,220,.9),transparent 42%),repeating-linear-gradient(0deg,rgba(110,70,30,.025) 0 1px,transparent 1px 4px),linear-gradient(90deg,#dfbd7c 0%,#f1d79e 13%,#f7e5b8 50%,#f1d79e 87%,#dfbd7c 100%);border-top:1px solid #8d5d2f;border-bottom:1px solid #8d5d2f;box-shadow:inset 0 12px 26px rgba(79,45,19,.12),inset 0 -12px 26px rgba(79,45,19,.12)}
+.cws-reviews:before,.cws-reviews:after{content:"";position:absolute;left:0;right:0;height:5px;background:linear-gradient(90deg,#512115,#9c5c2a 18%,#d29a48 50%,#9c5c2a 82%,#512115);opacity:.78}.cws-reviews:before{top:0}.cws-reviews:after{bottom:0}
+.cws-reviews__inner{width:min(1480px,calc(100% - 56px));margin:0 auto;padding:44px 0 50px}
+.cws-reviews__header{text-align:center;margin:0 auto 30px;max-width:980px}.cws-reviews__kicker{margin-bottom:8px;color:#9a5c28;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.cws-reviews__title-row{display:grid;grid-template-columns:minmax(40px,1fr) auto minmax(40px,1fr);gap:18px;align-items:center}.cws-reviews__rule{height:1px;background:linear-gradient(90deg,transparent,#77401f 32%,#a86b32)}.cws-reviews__rule:last-child{transform:scaleX(-1)}.cws-reviews__heading h1,.cws-reviews__heading h2,.cws-reviews__heading h3,.cws-reviews__heading p{margin:0}.cws-reviews__heading h1,.cws-reviews__heading h2{color:#3b160f;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:clamp(30px,3.1vw,46px);font-weight:900;line-height:1;letter-spacing:.025em;text-transform:uppercase;text-shadow:0 1px 0 #fff2cf,0 2px 0 rgba(65,31,15,.12)}.cws-reviews__subhead{margin:10px 0 0;color:#6d4329;font:italic 15px/1.4 Georgia,"Times New Roman",serif}
+.cws-reviews__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
+.cws-review{position:relative;min-width:0;display:flex;flex-direction:column;padding:24px 24px 20px;background:linear-gradient(180deg,rgba(255,250,235,.97),rgba(244,224,185,.97));border:1px solid #9a6736;border-top:5px solid #6b2118;border-radius:3px;box-shadow:0 8px 20px rgba(62,30,11,.16),inset 0 0 0 3px rgba(124,75,34,.055);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}.cws-review:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(62,30,11,.22),inset 0 0 0 3px rgba(124,75,34,.055)}
+.cws-review:before,.cws-review:after{content:"";position:absolute;width:22px;height:22px;border-color:#b17a3b;opacity:.62}.cws-review:before{left:9px;top:10px;border-left:1px solid;border-top:1px solid}.cws-review:after{right:9px;bottom:9px;border-right:1px solid;border-bottom:1px solid}
+.cws-review__top{display:flex;align-items:flex-start;justify-content:space-between;min-height:38px;margin-bottom:10px}.cws-review__quote{color:#6b2118;font-family:Georgia,serif;font-size:56px;line-height:.7;font-weight:700;opacity:.8}.cws-review__stars{color:#b16e25;font-size:19px;line-height:1;letter-spacing:.08em;text-shadow:0 1px #fff}
+.cws-review__excerpt{flex:1;color:#43261a;font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.52}.cws-review__excerpt p{margin:0}.cws-review__excerpt p:before{content:""}.cws-review__details{margin-top:14px;border-top:1px solid rgba(120,72,35,.22);padding-top:10px}.cws-review__details summary{cursor:pointer;list-style:none;color:#76271a;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}.cws-review__details summary::-webkit-details-marker{display:none}.cws-review__details summary:after{content:" +";font-size:15px}.cws-review__details[open] summary:after{content:" –"}.cws-review__full{margin-top:12px;padding-top:2px;color:#513223;font-family:Georgia,"Times New Roman",serif;font-size:13px;line-height:1.5}.cws-review__full p{margin:0 0 10px}.cws-review__full p:last-child{margin-bottom:0}
+.cws-review__footer{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:18px;padding-top:15px;border-top:1px solid rgba(113,67,30,.3)}.cws-review__name{display:inline-block;color:#36140e;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:14px;font-weight:900;line-height:1.1;letter-spacing:.025em;text-decoration:none;text-transform:uppercase}.cws-review__name:hover{text-decoration:underline}.cws-review__meta{margin-top:5px;color:#76533c;font-family:Georgia,"Times New Roman",serif;font-size:11px;line-height:1.28}.cws-review__google{flex:0 0 auto;padding:5px 7px;border:1px solid rgba(118,39,26,.38);color:#76271a;font-family:Arial,sans-serif;font-size:9px;font-weight:800;letter-spacing:.07em}
+@media(max-width:1120px){.cws-reviews__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cws-review__excerpt{font-size:16px}}
+@media(max-width:650px){.cws-reviews__inner{width:calc(100% - 24px);padding:36px 0 40px}.cws-reviews__grid{grid-template-columns:1fr;gap:14px}.cws-reviews__title-row{grid-template-columns:24px auto 24px;gap:10px}.cws-reviews__heading h1,.cws-reviews__heading h2{font-size:29px}.cws-reviews__subhead{font-size:13px}.cws-review{padding:22px 20px 18px}.cws-review__footer{align-items:flex-start}.cws-review__google{margin-top:1px}}
+{% endstylesheet %}
+
+
+{% style %}
+#CalicoReviews-{{ section.id }} {
+  background-color:{{ section.settings.background_color }};
+  {% if section.settings.background_image != blank %}
+    background-image:linear-gradient(rgba(255,255,255,{{ section.settings.overlay | divided_by: 100.0 }}),rgba(255,255,255,{{ section.settings.overlay | divided_by: 100.0 }})),url('{{ section.settings.background_image | image_url: width: 2400 }}');
+    background-position:{{ section.settings.background_position }};
+    background-size:cover;
+  {% endif %}
+}
+#CalicoReviews-{{ section.id }} .cws-reviews__inner { width:min({{ section.settings.max_width }}px,calc(100% - 56px)); padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; }
+#CalicoReviews-{{ section.id }} .cws-reviews__header { margin-bottom:{{ section.settings.heading_spacing }}px; }
+#CalicoReviews-{{ section.id }} .cws-reviews__heading h1,
+#CalicoReviews-{{ section.id }} .cws-reviews__heading h2 { color:{{ section.settings.heading_color }}; font-size:{{ section.settings.heading_size }}px; }
+#CalicoReviews-{{ section.id }} .cws-reviews__kicker { color:{{ section.settings.kicker_color }}; font-size:{{ section.settings.kicker_size }}px; }
+#CalicoReviews-{{ section.id }} .cws-reviews__subhead { color:{{ section.settings.subhead_color }}; font-size:{{ section.settings.subhead_size }}px; }
+#CalicoReviews-{{ section.id }} .cws-reviews__grid { grid-template-columns:repeat({{ section.settings.columns }},minmax(0,1fr)); gap:{{ section.settings.gap }}px; }
+#CalicoReviews-{{ section.id }} .cws-review { background:{{ section.settings.card_background }}; border-color:{{ section.settings.card_border_color }}; border-radius:{{ section.settings.card_radius }}px; padding:{{ section.settings.card_padding }}px; box-shadow:0 {{ section.settings.shadow_y }}px {{ section.settings.shadow_blur }}px rgba(55,30,15,{{ section.settings.shadow_opacity | divided_by: 100.0 }}); }
+#CalicoReviews-{{ section.id }} .cws-review__excerpt { color:{{ section.settings.text_color }}; font-size:{{ section.settings.text_size }}px; }
+#CalicoReviews-{{ section.id }} .cws-review__stars { color:{{ section.settings.star_color }}; font-size:{{ section.settings.star_size }}px; }
+#CalicoReviews-{{ section.id }} .cws-review__quote,
+#CalicoReviews-{{ section.id }} .cws-review__name { color:{{ section.settings.accent_color }}; }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Calico Customer Reviews",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Small heading",
+      "default": "REAL GOOGLE REVIEWS"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_html",
+      "label": "Main heading HTML",
+      "default": "<h2>WHAT OUR CUSTOMERS SAY</h2>"
+    },
+    {
+      "type": "text",
+      "id": "subhead",
+      "label": "Subheading",
+      "default": "Hand-carved signs. Old-school service. Customers notice the difference."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f1d79e"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "Background position",
+      "default": "center center",
+      "options": [
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Image light overlay",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content width",
+      "min": 800,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "default": 1480
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Card gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Space below heading",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 22,
+      "max": 70,
+      "step": 1,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#3b160f"
+    },
+    {
+      "type": "range",
+      "id": "kicker_size",
+      "label": "Small heading size",
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "kicker_color",
+      "label": "Small heading color",
+      "default": "#9a5c28"
+    },
+    {
+      "type": "range",
+      "id": "subhead_size",
+      "label": "Subheading size",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "subhead_color",
+      "label": "Subheading color",
+      "default": "#6a3c24"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#f3ddb0"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#a06b38"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Review text size",
+      "min": 11,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Review text color",
+      "default": "#43261a"
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "label": "Star size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 19
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#b16e25"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#6b2118"
+    },
+    {
+      "type": "range",
+      "id": "shadow_y",
+      "label": "Shadow drop",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "label": "Shadow softness",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "label": "Shadow strength",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 25
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "reviewer",
+          "label": "Reviewer name",
+          "default": "Customer Name"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Review details",
+          "default": "5-star Google review"
+        },
+        {
+          "type": "url",
+          "id": "source_url",
+          "label": "Google review/profile link"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "excerpt_html",
+          "label": "Visible review HTML",
+          "default": "<p>Add the best short part of the review here.</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "full_review_html",
+          "label": "Optional full review HTML"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Calico Customer Reviews"
+    }
+  ]
+}
+{% endschema %}

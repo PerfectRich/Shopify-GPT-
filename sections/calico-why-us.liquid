@@ -1,0 +1,336 @@
+{% if section.settings.show_section %}
+<section id="CalicoWhy-{{ section.id }}" class="calico-proof" aria-label="Why Calico Wood Signs">
+  <div class="calico-proof__rail calico-proof__rail--top" aria-hidden="true"><span class="calico-proof__rivet calico-proof__rivet--one"></span><span class="calico-proof__medallion">★</span><span class="calico-proof__rivet calico-proof__rivet--two"></span></div>
+  <div class="calico-proof__inner">
+    {% for block in section.blocks %}
+      <article class="calico-proof__item" {{ block.shopify_attributes }}>
+        <div class="calico-proof__icon" aria-hidden="true">
+          {% if block.settings.icon != blank %}
+            {{ block.settings.icon | image_url: width: 240 | image_tag: class: 'calico-proof__icon-image', loading: 'lazy', alt: '' }}
+          {% else %}
+            {% case block.settings.fallback_icon %}
+              {% when 'shield' %}<svg viewBox="0 0 64 64"><path d="M32 5 51 12v16c0 13-8 23-19 31C21 51 13 41 13 28V12L32 5Z"/><path d="M32 16v31M22 29h20"/></svg>
+              {% when 'paint' %}<svg viewBox="0 0 64 64"><path d="M13 50 47 16l6 6-34 34-10 2 4-8Z"/><path d="m42 21 6 6M12 48l7 7M45 12l7-7 7 7-7 7"/></svg>
+              {% when 'star' %}<svg viewBox="0 0 64 64"><path d="m32 5 7.5 15.2L56 22.6 44 34.3 46.8 51 32 43.2 17.2 51 20 34.3 8 22.6l16.5-2.4L32 5Z"/><path d="m32 18 3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.8-7-3.7-7 3.7 1.3-7.8-5.6-5.5 7.8-1.1L32 18Z"/></svg>
+              {% else %}<svg viewBox="0 0 64 64"><path d="M10 52 49 13l6 6-39 39-9 2 3-8Z"/><path d="m44 18 6 6M13 49l7 7M39 9l5 5M48 5l11 11"/></svg>
+            {% endcase %}
+          {% endif %}
+        </div>
+        <div class="calico-proof__html">{{ block.settings.html }}</div>
+      </article>
+    {% endfor %}
+  </div>
+  <div class="calico-proof__rail calico-proof__rail--bottom" aria-hidden="true"><span class="calico-proof__rivet calico-proof__rivet--three"></span><span class="calico-proof__medallion">★</span><span class="calico-proof__rivet calico-proof__rivet--four"></span></div>
+</section>
+{% endif %}
+{% stylesheet %}
+.calico-proof{position:relative;width:100%;overflow:hidden;color:#f3e3c2;background:linear-gradient(90deg,rgba(5,3,2,.7),rgba(27,13,6,.25) 30%,rgba(7,4,2,.52) 72%,rgba(5,3,2,.72)),linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.12) 35%,rgba(0,0,0,.5)),url('https://cdn.shopify.com/s/files/1/0699/9664/2417/files/calico-wood-background_ba4d867c-7e6f-4256-bba8-f4da6d60f639.jpg?v=1786524106') center 50%/cover no-repeat;box-shadow:inset 0 12px 24px #0009,inset 0 -12px 24px #0009}.calico-proof__inner{width:min(1180px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:52px 0 48px}.calico-proof__item{min-width:0;padding:0 30px;text-align:center;position:relative}.calico-proof__item+.calico-proof__item:before{content:"";position:absolute;left:0;top:22px;bottom:6px;width:1px;background:linear-gradient(transparent,#b67a33 14%,#d0a363 50%,#b67a33 86%,transparent);opacity:.55;box-shadow:1px 0 #0008}.calico-proof__icon{width:58px;height:58px;margin:0 auto 10px;display:grid;place-items:center;color:#d69735;filter:drop-shadow(0 2px 1px #000)}.calico-proof__icon svg,.calico-proof__icon-image{display:block;width:100%;height:100%;object-fit:contain}.calico-proof__icon svg{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.calico-proof__html h1,.calico-proof__html h2,.calico-proof__html h3,.calico-proof__html h4,.calico-proof__html p{margin:0}.calico-proof__html h3,.calico-proof__html h2{margin-bottom:8px;color:#f3e3c2;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:clamp(15px,1.55vw,20px);font-weight:900;line-height:1.08;letter-spacing:.015em;text-transform:uppercase;text-shadow:1px 2px 2px #000}.calico-proof__html p{max-width:230px;margin-inline:auto;color:#ead7b5;font-family:Georgia,"Times New Roman",serif;font-size:13px;line-height:1.35;text-shadow:1px 1px 1px #000}.calico-proof__rail{position:relative;height:31px;background:linear-gradient(180deg,#080604 0 8%,#2a2119 10% 22%,#0b0907 25% 62%,#34271b 66% 78%,#070504 82%);border-top:1px solid #4b3c2c;border-bottom:1px solid #020201;box-shadow:0 2px 5px #000b,inset 0 2px 3px #7d674235}.calico-proof__medallion{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;display:grid;place-items:center;border:3px solid #302a21;border-radius:50%;background:radial-gradient(circle at 36% 30%,#70614b,#25221b 42%,#070706 70%);color:#b59a68;font-size:25px;line-height:1;text-shadow:0 1px #000;box-shadow:0 2px 4px #000,inset 0 0 0 2px #756646}.calico-proof__rivet{position:absolute;top:50%;width:13px;height:13px;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#897b63,#28251f 46%,#090807 75%);border:1px solid #4d4435;box-shadow:0 1px 2px #000}.calico-proof__rivet--one,.calico-proof__rivet--three{left:18%}.calico-proof__rivet--two,.calico-proof__rivet--four{right:18%}.calico-proof__rail{display:none!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}@media(max-width:850px){.calico-proof__inner{grid-template-columns:repeat(2,minmax(0,1fr));width:min(700px,calc(100% - 28px));padding-block:34px}.calico-proof__item{padding:22px 18px}.calico-proof__item+.calico-proof__item:before{display:none}.calico-proof__item:nth-child(odd){border-right:1px solid #9f713e55}.calico-proof__item:nth-child(n+3){border-top:1px solid #9f713e55}}@media(max-width:480px){.calico-proof__inner{width:calc(100% - 18px)}.calico-proof__item{padding:18px 10px}.calico-proof__icon{width:48px;height:48px}.calico-proof__html p{font-size:12px}}
+{% endstylesheet %}
+
+{% style %}
+#CalicoWhy-{{ section.id }} {
+  {% if section.settings.background_image != blank %}
+    background-image:
+      linear-gradient(rgba(5,3,2,{{ section.settings.overlay | divided_by: 100.0 }}),rgba(5,3,2,{{ section.settings.overlay | divided_by: 100.0 }})),
+      url('{{ section.settings.background_image | image_url: width: 2400 }}');
+    background-position: {{ section.settings.background_position }};
+    background-size: cover;
+  {% endif %}
+  box-shadow: inset 0 12px 24px rgba(0,0,0,{{ section.settings.shadow | divided_by: 100.0 }}), inset 0 -12px 24px rgba(0,0,0,{{ section.settings.shadow | divided_by: 100.0 }});
+}
+#CalicoWhy-{{ section.id }} .calico-proof__inner {
+  width: min({{ section.settings.max_width }}px,calc(100% - 48px));
+  grid-template-columns: repeat({{ section.settings.columns }},minmax(0,1fr));
+  gap: {{ section.settings.gap }}px;
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+#CalicoWhy-{{ section.id }} .calico-proof__item { padding: {{ section.settings.item_padding }}px; text-align: {{ section.settings.alignment }}; }
+#CalicoWhy-{{ section.id }} .calico-proof__icon { width: {{ section.settings.icon_size }}px; height: {{ section.settings.icon_size }}px; color: {{ section.settings.icon_color }}; }
+#CalicoWhy-{{ section.id }} .calico-proof__html h2,
+#CalicoWhy-{{ section.id }} .calico-proof__html h3 { color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_size }}px; }
+#CalicoWhy-{{ section.id }} .calico-proof__html p { color: {{ section.settings.text_color }}; font-size: {{ section.settings.text_size }}px; }
+#CalicoWhy-{{ section.id }} .calico-proof__item + .calico-proof__item:before { opacity: {{ section.settings.divider_opacity | divided_by: 100.0 }}; }
+{% unless section.settings.show_dividers %}#CalicoWhy-{{ section.id }} .calico-proof__item + .calico-proof__item:before{display:none!important}{% endunless %}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Calico Why Us",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "Background position",
+      "default": "center center",
+      "options": [
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Background darkness",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "shadow",
+      "label": "Inset shadow",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content width",
+      "min": 800,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1180
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Box padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 30,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 58
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#d69735"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 12,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#f3e3c2"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Body text size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#ead7b5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show box dividers",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_opacity",
+      "label": "Divider strength",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image"
+        },
+        {
+          "type": "select",
+          "id": "fallback_icon",
+          "label": "Built-in icon",
+          "default": "tools",
+          "options": [
+            {
+              "value": "tools",
+              "label": "Carving tools"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "paint",
+              "label": "Paint brush"
+            },
+            {
+              "value": "star",
+              "label": "Western star"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "html",
+          "label": "Heading and text HTML",
+          "default": "<h3>Benefit heading</h3><p>Add your benefit text here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Calico Why Us",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "fallback_icon": "tools",
+            "html": "<h3>100% HAND CARVED</h3><p>Every sign is freehand carved by skilled craftsmen. No CNC, no computers, just talent.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "fallback_icon": "shield",
+            "html": "<h3>BUILT TO LAST</h3><p>Made from premium wood and finished to withstand years of indoor or covered outdoor use.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "fallback_icon": "paint",
+            "html": "<h3>HAND PAINTED</h3><p>Each sign is hand painted with care and attention to every detail.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "fallback_icon": "star",
+            "html": "<h3>20+ YEARS EXPERIENCE</h3><p>Our carvers each have over 20 years of experience and unique styles.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

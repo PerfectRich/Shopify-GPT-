@@ -1,0 +1,70 @@
+<section id="CalicoCollectionReferenceFooter-{{ section.id }}" class="cws-ref-footer">
+  <div class="cws-ref-footer__story">
+    <div class="cws-ref-footer__copy">
+      <h2>OLD-SCHOOL CRAFTSMANSHIP.<br>BUILT TO LAST.</h2>
+      <p>Since 1998, Calico Wood Signs has been creating custom, hand-carved wood signs at Knott’s Berry Farm. We believe in doing things the old-fashioned way—one sign at a time.</p>
+      <a href="/#about-us">LEARN MORE ABOUT US</a>
+    </div>
+    <div class="cws-ref-footer__photo">
+      <img src="https://cdn.shopify.com/s/files/1/0699/9664/2417/files/calico-inside-shop-3000px.png?v=1786641936" alt="Calico Wood Signs shop" loading="lazy">
+    </div>
+  </div>
+  <div class="cws-ref-footer__links">
+    <div class="cws-ref-footer__brand">
+      <strong>CALICO<br>WOOD SIGNS</strong>
+      <small>EST. 1998</small>
+      <p>Hand-carved. Hand-painted.<br>Built the old-school way.</p>
+    </div>
+    <div>
+      <h3>COMPANY INFO</h3>
+      <a href="/#about-us">About Us</a>
+      <a href="/#how-it-works">Our Process</a>
+      <a href="/pages/contact">Custom Inquiries</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div>
+      <h3>CUSTOMER SERVICE</h3>
+      <a href="/pages/shipping-returns">Shipping & Returns</a>
+      <a href="/#faq">FAQs</a>
+      <a href="/policies/privacy-policy">Policies & Payment</a>
+      <a href="/pages/contact">Contact Us</a>
+    </div>
+    <div>
+      <h3>STAY CONNECTED</h3>
+      <p>Follow us for behind-the-scenes, new designs, and shop updates.</p>
+      <div class="cws-ref-footer__social">
+        <a href="https://www.facebook.com/" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
+        <a href="https://www.pinterest.com/" aria-label="Pinterest">p</a>
+        <a href="https://www.youtube.com/" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+  <div class="cws-ref-footer__copyright">© {{ 'now' | date: '%Y' }} Calico Wood Signs. All Rights Reserved.</div>
+</section>
+{% style %}
+/* CALICO DRAFT HOME FOOTER COPY */
+.shopify-section-group-footer-group{display:none!important}
+
+body.template-collection .calico-footer-shell{display:none!important}
+#CalicoCollectionReferenceFooter-{{ section.id }}{margin:0;background:#160d07;color:#f3e3c2;border-top:4px solid #3a2415;box-shadow:0 -8px 24px #0008;font-family:Georgia,'Times New Roman',serif}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__story{display:grid;grid-template-columns:.9fr 1.1fr;min-height:360px;background:#1b1009}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__copy{padding:46px clamp(28px,5vw,68px);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(90deg,#25150c,#130a05);border-right:4px solid #382414}
+#CalicoCollectionReferenceFooter-{{ section.id }} h2{margin:0 0 20px;color:#fff0d0;font:900 clamp(34px,3.5vw,56px)/1 Copperplate,'Copperplate Gothic Bold',Rockwell,Georgia,serif;letter-spacing:.01em;text-shadow:1px 2px 3px #000}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__copy p{max-width:620px;margin:0 0 24px;color:#ead9ba;font-size:17px;line-height:1.55}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__copy>a{align-self:flex-start;padding:13px 18px;background:linear-gradient(#6f2517,#3b1008);border:1px solid #d29a48;color:#fff0d5;text-decoration:none;font:900 12px Copperplate,'Copperplate Gothic Bold',Rockwell,Georgia,serif;letter-spacing:.06em}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__photo{min-height:360px;overflow:hidden}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__photo img{width:100%;height:100%;display:block;object-fit:cover;filter:brightness(1.08) saturate(1.05)}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links{display:grid;grid-template-columns:1.15fr 1fr 1fr 1.15fr;gap:32px;padding:28px clamp(26px,5vw,66px) 22px;background:linear-gradient(#2a190e,#120a06);border-top:3px solid #4d321d}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links h3{margin:0 0 12px;color:#f1dfbd;font:900 14px Copperplate,'Copperplate Gothic Bold',Rockwell,Georgia,serif}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links a,#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links p{display:block;margin:0 0 7px;color:#ead5b2;text-decoration:none;font-size:14px;line-height:1.35}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links>div:not(:first-child){padding-left:24px;border-left:1px solid #6d4b2d}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__brand strong{display:block;color:#fff0d0;font:900 26px/.9 Copperplate,'Copperplate Gothic Bold',Rockwell,Georgia,serif}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__brand small{display:block;margin:8px 0 10px;color:#d3a466;font-weight:800}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__social{display:flex;gap:9px;margin-top:12px}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__social a{display:grid;place-items:center;width:30px;height:30px;margin:0;border:1px solid #8f6841;border-radius:50%;background:#100a06;color:#f3e3c2;font:900 15px Arial,sans-serif}
+#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__copyright{padding:8px 20px 14px;text-align:center;background:#120a06;color:#dfc9a6;font-size:12px}
+@media(max-width:900px){#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__story{grid-template-columns:1fr}#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__copy{border-right:0;border-bottom:4px solid #382414}#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links{grid-template-columns:1fr 1fr}#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links>div:not(:first-child){padding-left:0;border-left:0}}
+@media(max-width:600px){#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__links{grid-template-columns:1fr}#CalicoCollectionReferenceFooter-{{ section.id }} .cws-ref-footer__photo{min-height:260px}}
+{% endstyle %}
+{% schema %}{"name":"Calico Collection Footer","settings":[],"presets":[{"name":"Calico Collection Footer"}]}{% endschema %}

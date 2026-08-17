@@ -1,0 +1,112 @@
+<header class="calico-western-header" data-calico-header>
+  <div class="calico-tagline">HAND-CARVED. HAND-PAINTED. MADE THE OLD-SCHOOL WAY.</div>
+  <div class="calico-nav-shell">
+    <span class="calico-ring calico-ring--left" aria-hidden="true"><span></span></span>
+
+    <a class="calico-brand" href="/" aria-label="Calico Wood Signs home">
+      <img src="https://cdn.shopify.com/s/files/1/0699/9664/2417/files/calico-logo-transparent_lrg1.png?v=1786650531" alt="Calico Wood Signs" width="1015" height="300" loading="eager">
+    </a>
+
+    <nav class="calico-desktop-nav" aria-label="Main navigation">
+      <a href="/" class="calico-nav-link">Home</a>
+      <details class="calico-collections">
+        <summary class="calico-nav-link">Collections <span aria-hidden="true">⌄</span></summary>
+        <div class="calico-dropdown">
+          <a href="/collections/from-the-garden">From the Garden</a>
+          <a href="/collections/desert-wood-signs">Desert Wood Signs</a>
+          <a href="/collections/on-the-ranch">On The Ranch</a>
+          <a href="/collections/all">View All Signs</a>
+        </div>
+      </details>
+      <a href="/collections/all" class="calico-nav-link">Custom Signs</a>
+      <a href="/#about-us" class="calico-nav-link">About Us</a>
+      <a href="/#faq" class="calico-nav-link">FAQ</a>
+      <a href="/pages/contact" class="calico-nav-link">Contact</a>
+    </nav>
+
+    <div class="calico-actions">
+      <a href="/search" class="calico-icon-link" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.4"></circle><path d="m16 16 4.2 4.2"></path></svg>
+      </a>
+      <a href="/cart" class="calico-icon-link" aria-label="Cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10h9.9l2-7H6.2"></path><circle cx="9" cy="19" r="1.2"></circle><circle cx="17" cy="19" r="1.2"></circle></svg>
+        {% if cart.item_count > 0 %}<span class="calico-cart-count">{{ cart.item_count }}</span>{% endif %}
+      </a>
+    </div>
+
+    <details class="calico-mobile-menu">
+      <summary aria-label="Open menu"><span></span><span></span><span></span></summary>
+      <div class="calico-mobile-panel">
+        <a href="/">Home</a>
+      <strong>Collections</strong>
+        <a class="sub" href="/collections/from-the-garden">From the Garden</a>
+        <a class="sub" href="/collections/desert-wood-signs">Desert Wood Signs</a>
+        <a class="sub" href="/collections/on-the-ranch">On The Ranch</a>
+        <a href="/collections/all">Custom Signs</a>
+        <a href="/#about-us">About Us</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/pages/contact">Contact</a>
+      </div>
+    </details>
+
+    <span class="calico-ring calico-ring--right" aria-hidden="true"><span></span></span>
+  </div>
+</header>
+
+{% style %}
+  .calico-western-header{position:relative;z-index:50;color:#f3e3c2;font-family:Georgia,'Times New Roman',serif;box-shadow:0 3px 10px #000b}
+  .calico-tagline{height:22px;display:flex;align-items:center;justify-content:center;padding:0 14px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.14em;color:#e3b365;text-transform:uppercase;background:linear-gradient(180deg,#4a1b0f 0%,#2b0e08 55%,#3a140c 100%);border-bottom:1px solid #7a4c2b;box-shadow:inset 0 -3px 8px #0008}
+  .calico-nav-shell{min-height:72px;display:grid;grid-template-columns:158px minmax(0,1fr) auto;align-items:center;gap:20px;padding:0 74px;position:relative;background:linear-gradient(90deg,#100a06db,#100a06c7 50%,#100a06db),url('https://cdn.shopify.com/s/files/1/0699/9664/2417/files/calico-wood-background_ba4d867c-7e6f-4256-bba8-f4da6d60f639.jpg?v=1786524106') center 44%/cover no-repeat;border-bottom:2px solid #0a0604;box-shadow:inset 0 8px 18px #0009,inset 0 -5px 10px #000a}
+  .calico-brand{display:flex;align-items:center;width:150px;height:58px;text-decoration:none;overflow:hidden}
+  .calico-brand img{display:block;width:150px;height:auto;max-height:58px;object-fit:contain;filter:contrast(1.04) brightness(1.03)}
+  .calico-desktop-nav{display:flex;align-items:center;justify-content:center;gap:22px;white-space:nowrap;min-width:0}
+  .calico-nav-link,.calico-collections summary{position:relative;color:#f3e3c2;text-decoration:none;text-transform:uppercase;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:13px;font-weight:900;letter-spacing:.045em;line-height:72px;cursor:pointer;list-style:none;text-shadow:1px 2px 2px #000}
+  .calico-collections summary::-webkit-details-marker{display:none}
+  .calico-nav-link:hover,.calico-collections summary:hover{color:#e0a84b}
+  .calico-nav-link[href="/"]{color:#dfa64f}
+  .calico-nav-link[href="/"]::after{content:"";position:absolute;left:0;right:0;bottom:17px;height:2px;background:#a96c27;box-shadow:0 1px #000}
+  .calico-collections{
+    position:relative;
+    margin:0!important;
+    padding:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .calico-collections > summary,
+  .calico-collections > summary:hover,
+  .calico-collections > summary:focus,
+  .calico-collections > summary:focus-visible,
+  .calico-collections[open] > summary{
+    margin:0!important;
+    padding:0!important;
+    background:transparent!important;
+    background-color:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    -webkit-appearance:none!important;
+    appearance:none!important;
+    -webkit-tap-highlight-color:transparent!important;
+  }
+  .calico-dropdown{display:none;position:absolute;top:58px;left:-18px;min-width:220px;padding:9px 0;background:linear-gradient(#2d190d,#160c06);border:1px solid #74502e;box-shadow:0 10px 24px #000c}
+  .calico-collections[open] .calico-dropdown,.calico-collections:hover .calico-dropdown{display:block}
+  .calico-dropdown a{display:block;padding:10px 18px;color:#f3e3c2;text-decoration:none;text-transform:uppercase;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:11px;font-weight:800;letter-spacing:.045em;border-bottom:1px solid #ffffff12}
+  .calico-dropdown a:hover{background:#6e2b18;color:#f4c56e}
+  .calico-actions{display:flex;align-items:center;gap:13px}
+  .calico-icon-link{width:25px;height:30px;position:relative;display:grid;place-items:center;color:#f3e3c2}
+  .calico-icon-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .calico-icon-link:hover{color:#dba54c}
+  .calico-cart-count{position:absolute;top:-1px;right:-5px;min-width:15px;height:15px;padding:0 3px;border-radius:10px;background:#7c2818;color:#fff;font:700 9px/15px Arial,sans-serif;text-align:center}
+  .calico-ring{position:absolute;top:5px;width:50px;height:62px;z-index:3;pointer-events:none}
+  .calico-ring--left{left:17px}.calico-ring--right{right:17px}
+  .calico-ring:before{content:"";position:absolute;left:8px;top:0;width:34px;height:30px;border-radius:50% 50% 42% 42%;background:radial-gradient(circle at 36% 28%,#777 0 5%,#2c2b27 18%,#0c0c0b 58%,#3d3a31 70%,#111 78%);border:2px solid #554c39;box-shadow:0 2px 3px #000,inset 0 1px 2px #9996}
+  .calico-ring span{position:absolute;left:7px;top:23px;width:37px;height:37px;border:5px solid #35332c;border-radius:50%;box-shadow:inset 0 0 0 2px #80735a,0 3px 4px #000;background:transparent}
+  .calico-mobile-menu{display:none}
+  @media(max-width:1120px){.calico-desktop-nav{gap:13px}.calico-nav-link,.calico-collections summary{font-size:11px}.calico-nav-shell{grid-template-columns:142px 1fr auto;padding-inline:64px}.calico-brand,.calico-brand img{width:136px}}
+  @media(max-width:850px){.calico-tagline{font-size:8px;height:20px}.calico-nav-shell{min-height:66px;grid-template-columns:auto 1fr auto;padding:0 56px 0 14px}.calico-desktop-nav{display:none}.calico-brand{width:132px;height:52px}.calico-brand img{width:132px;max-height:52px}.calico-actions{justify-self:end;margin-right:7px}.calico-mobile-menu{display:block;position:absolute;right:11px;top:15px}.calico-mobile-menu>summary{width:34px;height:34px;display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;list-style:none}.calico-mobile-menu>summary::-webkit-details-marker{display:none}.calico-mobile-menu>summary span{display:block;height:2px;width:24px;background:#f3e3c2}.calico-mobile-panel{position:absolute;right:-11px;top:50px;width:min(310px,90vw);padding:12px 0;background:linear-gradient(#2b180d,#130b06);border:1px solid #74502e;box-shadow:0 12px 28px #000c}.calico-mobile-panel a,.calico-mobile-panel strong{display:block;padding:10px 20px;color:#f3e3c2;text-decoration:none;text-transform:uppercase;font-family:"Copperplate","Copperplate Gothic Bold","Rockwell",Georgia,serif;font-size:12px;font-weight:800;letter-spacing:.05em}.calico-mobile-panel .sub{padding-left:34px;color:#d9b77c}.calico-ring--left{display:none}.calico-ring--right{right:7px;opacity:.30;transform:scale(.72);transform-origin:right top}}
+
+  /* Keep the complete live navigation clear of the overlapping hero portrait. */
+  @media(min-width:851px){.calico-desktop-nav{transform:translateX(-72px)}}
+{% endstyle %}
+
+{% schema %}{"name":"Calico Western Header","settings":[],"presets":[]}{% endschema %}
